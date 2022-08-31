@@ -11,7 +11,7 @@ const initialState = {
 // create async thunk
 const fetchPosts = createAsyncThunk("post/fetchPosts", async () => {
   const response = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?_limit=5"
+    "https://jsonplaceholder.typicode.com/posts/1"
   );
   const posts = await response.json();
 
