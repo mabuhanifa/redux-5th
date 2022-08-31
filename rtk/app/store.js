@@ -6,7 +6,7 @@ const logger = createLogger();
 // configure store
 const store = configureStore({
   reducer: {
-    post: postReducer,
+    singlePost: postReducer,
   },
   middleware: (getDefaultMiddlewares) => getDefaultMiddlewares().concat(logger),
 });

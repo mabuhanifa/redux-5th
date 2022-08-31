@@ -9,13 +9,15 @@ const initialState = {
 };
 
 // create async thunk
-const fetchPosts = createAsyncThunk("post/fetchPosts", async () => {
+const fetchRelatedPosts = createAsyncThunk("post/fetchPosts", async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
   const post = await res.json();
   const queryString = post.title.split(" ");
   let response =
     "https://jsonplaceholder.typicode.com/posts?" +
     queryString.join("&title_like=");
+  // const response2 = await fetch("https://jsonplaceholder.typicode.com/posts/2");
+  // const posts2 = await response2.json();
   const final = await fetch(response);
   const posts = await final.json();
   return posts;
@@ -44,5 +46,5 @@ const postSlice = createSlice({
   },
 });
 
-module.exports = postSlice.reducer;
-module.exports.fetchPosts = fetchPosts;
+module.exports = relatedPostSlice.reducer;
+module.exports.fetchRelatedPosts = fetchRelatedPosts;
